@@ -26,6 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
+#include "bsp_printlog.h"
 
 /* USER CODE END Includes */
 
@@ -122,10 +123,12 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+    segger_rtt_init("APP enter!");
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+      print_log("You are in App now !!\n");
+    osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
 }
