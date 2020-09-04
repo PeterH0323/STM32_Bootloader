@@ -23,6 +23,9 @@
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "bsp_printlog.h"
+#include "bsp_iap.h"
 
 /* USER CODE END Includes */
 
@@ -96,6 +99,13 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+    segger_rtt_init("Demo start!");
+
+	if(((FLASH_JUMP_ADDR+4)&0xFF000000)==0x08000000) //Judge if start at 0X08XXXXXX.
+	{
+		print_log("Jump to app\n");
+		iap_load_app(FLASH_JUMP_ADDR);//Load APP
+	}
     
   /* USER CODE END 2 */
 
