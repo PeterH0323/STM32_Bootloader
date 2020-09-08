@@ -30,7 +30,7 @@
 *
 * @retval: 无
 */
-void iap_load_app(uint32_t appxaddr);
+void jump_to_app(uint32_t appxaddr);
 
 
 #endif /* __BSP_IAP_H */
